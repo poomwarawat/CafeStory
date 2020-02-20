@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>SCCKINGDOW</title>
+</head>
+<body class="body">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #333;">
+    <a class="navbar-brand" href="../home.html"><p class="pt-3">SCC<span>KINGDOW</span></p></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div style="float: left; width: 100%;">
+            <ul class="navbar-nav pl-4">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Tour Services</a>
+                        <a class="dropdown-item" href="#">Van Services</a>
+                </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="group-btn">
+            <form class="form-inline float-md-right btn-p">
+                <!-- <button class="btn m-2 p-1 btn-nav" type="submit">Sign In</button>
+                <button class="btn m-2 p-1 btn-nav" type="submit">Sign Up</button> -->
+                <a href="#" id="myBtn" data-toggle="modal" data-target="#exampleModalLong1" >Sign In</a>
+                <a href="#" id="myBtn1" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-secondary border border-light">Create accout</a>
+                <div id="PicPro">
+                    <!-- <div id="user_para" class="pr-3 text-white"></div> -->
+                    <p id="user_para" class="text-white"></p>
+                    <div class="profile-pic">
+                        <a  onclick="Picprofile()">
+                            <img class="w-100 rounded-circle" src="img/poo,.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                                
+            </form>
+    </div>  
+</nav>
+<!-- right nav -->
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="profile/profile.html">Profile</a>
+        <a href="manage/manage.html">Web Management</a>
+        <a onclick="logout()" href="#">Logout</a>
+</div>
+<!-- modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="border:  none;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center namemodal">
+                    <img src="img/user (1).svg" class="w-25" alt="">
+                    <h3 class="pt-3">Tourist</h3>
+                    <p>Please fill in this forms create an accout</p>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>Email</p>
+                            <input class="form-control" style="height: 30px;" type="email" placeholder="Email..." id="email">
+                            <p class="pt-3">Password</p>
+                            <input class="form-control" style="height: 30px;" placeholder="Password..." type="password" id="password">
+                            <p class="pt-3">Firstname</p>
+                            <input class="form-control" style="height: 30px;" placeholder="Firstname..." type="text" id="name">
+                            <p class="pt-3">Lastname</p>
+                            <input class="form-control" style="height: 30px;" placeholder="Lastname..." type="text" id="lastname"><br>
+                            <button class="signup" onclick="SignUp()">CRAETE ACCOUT</button>
+                            <div id="error_show"></div>
+                            <p style="font-size: 12px;" class="pl-2 pt-1">By proceeding you agree to SCCKINGDOM <span style="color: #66CDAA;">Teem of Use </span> and <br>
+                            <span style="color: #66CDAA;">Privacy Policy</span> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm float-md-left">
+                    <a href="" class="text-dark ">Are your have bussiness accout?</a>
+                    <a href="" class="float-md-right text-dark"><button class="signin">Jois Us</button></a>
+                </div>
+            </div>
+          </div>
+        </div>
+</div>
+<!-- snakbar -->
+<div id="snackbar">Wishlisted</div>
+<!-- modal1 -->
+<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header" style="border: none;">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                        <div class="text-center namemodal">
+                            <img class="w-25 p-2" src="img/logo.png" alt="">
+                            <h1>Sign In<h1>
+                            <h4>Travel with SCC<span>KINGDOW</span></h4>
+                        </div>
+                        <div class="mt-4">
+                            <input class="form-control" style="height: 30px;" type="email" placeholder="Email..." id="email_field" >
+                            <input class="form-control mt-3" style="height: 30px;" type="password" placeholder="Password..." id="password_field" />
+                            <div id="error_login" style="color: red;"></div>
+                            <div class="form-check mt-4 text-center">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                            </div>
+                            <div class="text-center p-4 ">
+                                <button onclick="login()" class="btn-nav signin">Sign In</button>
+                            </div> 
+                        </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm float-md-left">
+                            <a href="" class="text-dark">create new accout</a>
+                            <a href="" class="float-md-right text-dark">forgot password?</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+</div>
+<!-- modal2 verify -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+                <h1>Verify<h1>
+                <h4>Travel with SCC<span style="color: #66CDAA;">KINGDOW</span></h4>
+                    <div class="container pt-4">
+                        <button class="btn btn-primary" 
+                        onclick="sendEmailVerification()" name="verify-email">Send Email Verification</button>            
+                        <div class="pt-3">
+                                <p>If Email not send <span style="text-decoration: underline;" onclick="sendEmailVerification()">Send again</span></p>
+                        </div>
+                    </div>
+            </div>
+          </div>
+        </div>
+</div>
+<!-- img -->
+<div id="carouselExampleIndicators" style="background-color: #333;" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" style="opacity: 0.7;" src="img/p3.jpg" alt="First slide">
+      </div>
+    </div>
+    <div class="w3-display-middle">
+        <p style="font-size: 5vw; color: white; text-align: center;">Chiangmai</p>
+        <p style="color: white; font-size: 1vw; text-align: center;">In the shadow of Mount Doi Suthep, blessed with rice customs and traditions, beautiful wild flowers, magnificent Nakhon Phin</p>
+    </div>
+</div><br>
+<!-- Data -->
+<div class="container pt-4">
+        <h3>RECCOMEND TOUR</h3>
+        <div class="row pt-4">
+            <div class="col">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 pt-4">
+                        <img src="img/p15.jpg" class="w-75 rounded mx-auto d-block" alt="" onclick="Next()">
+                        <div class="pl-5 pt-2">
+                            <div class="row">
+                                <div class="col-4 font-weight-bold" style="font-size: 14px; color: #00875A;" onclick="Next()">Ayutthaya</div>
+                                <div class="col-6">
+                                    <!-- Day -->
+                                </div>
+                            </div>
+                            <div class="pt-2">
+                                <div style="width: 200px; color: #333;">
+                                        <b onclick="Next()">Travel in old Capital with Ayutthaya travel trip </b><br>
+                                </div>
+                                <b style="font-size: 12px; color: #3d3d3d;">Travel in old Capital with Ayutthaya travel trip </b>
+                                <h4>THB 2,000</h4>
+                                <div class="row">
+                                        <div class="col-8">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <div class="col-1">
+                                            <i class="fa fa-heart-o" onclick="wishlist()" style="font-size:24px; color: red;"></i>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 pt-4">
+                        <img src="img/p15.jpg" class="w-75 rounded mx-auto d-block" alt="">
+                        <div class="pl-5 pt-2">
+                                <div class="row">
+                                    <div class="col-4" style="font-size: 14px;">Ayutthaya</div>
+                                    <div class="col-6">
+                                        <!-- Day -->
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <div style="width: 200px">
+                                            <b >Travel in old Capital with Ayutthaya travel trip </b><br>
+                                    </div>
+                                    <b style="font-size: 12px;">Travel in old Capital with Ayutthaya travel trip </b>
+                                    <h4>THB 2,000</h4>
+                                    <div class="row">
+                                            <div class="col-8">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <i class="fa fa-heart-o" onclick="wishlist()" style="font-size:24px; color: red;"></i>
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 pt-4">
+                        <img src="img/p15.jpg" class="w-75 rounded mx-auto d-block" alt="">
+                        <div class="pl-5 pt-2">
+                                <div class="row">
+                                    <div class="col-4" style="font-size: 14px;">Ayutthaya</div>
+                                    <div class="col-6">
+                                        <!-- Day -->
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <div style="width: 200px">
+                                            <b >Travel in old Capital with Ayutthaya travel trip </b><br>
+                                    </div>
+                                    <b style="font-size: 12px;">Travel in old Capital with Ayutthaya travel trip </b>
+                                    <h4>THB 2,000</h4>
+                                    <div class="row">
+                                            <div class="col-8">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                    <i class="fa fa-heart-o" onclick="wishlist()" style="font-size:24px; color: red;"></i>
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 pt-4">
+                            <img src="img/p15.jpg" class="w-75 rounded mx-auto d-block" alt="">
+                            <div class="pl-5 pt-2">
+                                    <div class="row">
+                                        <div class="col-4" style="font-size: 14px;">Ayutthaya</div>
+                                        <div class="col-6">
+                                            <!-- Day -->
+                                        </div>
+                                    </div>
+                                    <div class="pt-2">
+                                        <div style="width: 200px">
+                                                <b >Travel in old Capital with Ayutthaya travel trip </b><br>
+                                        </div>
+                                        <b style="font-size: 12px;">Travel in old Capital with Ayutthaya travel trip </b>
+                                        <h4>THB 2,000</h4>
+                                        <div class="row">
+                                                <div class="col-8">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                                <div class="col-1">
+                                                        <i class="fa fa-heart-o" onclick="wishlist()" style="font-size:24px; color: red;"></i>
+                                                </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 pt-4">
+                            <img src="img/p15.jpg" class="w-75 rounded mx-auto d-block" alt="">
+                            <div class="pl-5 pt-2">
+                                    <div class="row">
+                                        <div class="col-4" style="font-size: 14px;">Ayutthaya</div>
+                                        <div class="col-6">
+                                            <!-- Day -->
+                                        </div>
+                                    </div>
+                                    <div class="pt-2">
+                                        <div style="width: 200px">
+                                                <b >Travel in old Capital with Ayutthaya travel trip </b><br>
+                                        </div>
+                                        <b style="font-size: 12px;">Travel in old Capital with Ayutthaya travel trip </b>
+                                        <h4>THB 2,000</h4>
+                                        <div class="row">
+                                                <div class="col-8">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                                <div class="col-1">
+                                                        <i class="fa fa-heart-o" onclick="wishlist()" style="font-size:24px; color: red;"></i>
+                                                </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 pt-4">
+                        <img src="img/p15.jpg" class="w-75 rounded mx-auto d-block" alt="">
+                        <div class="pl-5 pt-2">
+                                <div class="row">
+                                    <div class="col-4" style="font-size: 14px;">Ayutthaya</div>
+                                    <div class="col-6">
+                                        <!-- Day -->
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <div style="width: 200px">
+                                            <b >Travel in old Capital with Ayutthaya travel trip </b><br>
+                                    </div>
+                                    <b style="font-size: 12px;">Travel in old Capital with Ayutthaya travel trip </b>
+                                    <h4>THB 2,000</h4>
+                                    <div class="row">
+                                            <div class="col-8">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                    <i class="fa fa-heart-o" onclick="wishlist()" style="font-size:24px; color: red;"></i>
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+</div><br><br>
+<!-- review -->
+<div class="container">
+    <h3>Traveler's Reviews</h3>
+    <div class="row">
+        <div class="col-sm-4 p-4">
+            <div style="border-radius: 10px; border: 3px solid #66CDAA; padding: 15px;">
+                <div class="text-center pt-4">
+                    <img src="img/poo,.jpg" class="rounded-circle w-25" alt="" style="z-index: 4;">
+                        <div class="pt-2">
+                            <h5>Warawat Lailerd</h5>
+                            <p>Thailand</p>
+                            <div>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span> 
+                            </div>
+                            <div class="text-left pt-3">
+                                Contrary to popular belief, Lorem Ipsum is not simply 
+                                random text. It has roots in a piece of classical Latin 
+                                literature from 45 BC, making it over 2000 years old. 
+                                Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.
+                            </div>
+                            <div style="height: 50px;"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 p-4">
+            <div style="border-radius: 10px; border: 3px solid #66CDAA; padding: 15px;">
+                <div class="text-center pt-4">
+                    <img src="img/poo,.jpg" class="rounded-circle w-25" alt="" style="z-index: 4;">
+                        <div class="pt-2">
+                            <h5>Warawat Lailerd</h5>
+                            <p>Thailand</p>
+                            <div>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span> 
+                            </div>
+                            <div class="text-left pt-3">
+                                Contrary to popular belief, Lorem Ipsum is not simply 
+                                random text. It has roots in a piece of classical Latin 
+                                literature from 45 BC, making it over 2000 years old. 
+                                Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.
+                            </div>
+                            <div style="height: 50px;"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 p-4">
+            <div style="border-radius: 10px; border: 3px solid #66CDAA; padding: 15px;">
+                <div class="text-center pt-4">
+                    <img src="img/poo,.jpg" class="rounded-circle w-25" alt="" style="z-index: 4;">
+                        <div class="pt-2">
+                            <h5>Warawat Lailerd</h5>
+                            <p>Thailand</p>
+                            <div>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span> 
+                            </div>
+                            <div class="text-left pt-3">
+                                Contrary to popular belief, Lorem Ipsum is not simply 
+                                random text. It has roots in a piece of classical Latin 
+                                literature from 45 BC, making it over 2000 years old. 
+                                Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.
+                            </div>
+                            <div style="height: 50px;"></div>
+                        </div>
+                </div>
+            </div>
+        </div>          
+    </div>
+</div><br>
+<!-- seller -->
+<div class="container">
+        <div class="row text-center">
+                        <div class="col-lg-4"><br>
+                            <div class="seller-pic">
+                                <img class="w-100 rounded-circle" src="img/poo,.jpg" alt="">
+                            </div>
+                            <div style="padding-top: 10px;">
+                                <p>Warawat lailerd(Seller)</p>
+                                <p>Call : <span>091-xxx-xxxx</span></p>
+                            </div>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4"><br>
+                            <div class="seller-pic">
+                                    <img class="w-100 rounded-circle" src="img/poo,.jpg" alt="">
+                            </div>
+                            <div style="padding-top: 10px;">
+                                    <p>Warawat lailerd(Seller)</p>
+                                    <p>Call : <span>091-xxx-xxxx</span></p>
+                                </div>
+                      </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4"><br>
+                            <div class="seller-pic">
+                                    <img class="w-100 rounded-circle" src="img/poo,.jpg" alt="">
+                                </div>
+                                <div style="padding-top: 10px;">
+                                        <p>Warawat lailerd(Seller)</p>
+                                        <p>Call : <span>091-xxx-xxxx</span></p>
+                                    </div>
+                      </div><!-- /.col-lg-4 -->
+        </div> <!-- /.row -->
+</div>
+<!-- footer -->
+<footer>
+    <div class="container-fluid footer">
+        <div class="row">
+          <div class="col-sm">
+            <div class="Datafooter">
+                <h4>Contact</h4>
+                <p>Adress : xxx Road 22/1 Chiangrai</p>
+                <p>Phone : 09x-xxx-xxxx</p>
+                <p>E-mail : scckingdow@mail.com</p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="Datafooter">
+                <h4>About Me</h4>
+                <p>What's SCCKINGDOW ?</p>
+                <p>Tour Services</p>
+                <p>Van Services</p>
+                <p>Help</p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="Datafooter">
+                <h4>Suggest Me</h4>
+                <textarea name="" id="" cols="20" rows="5" style="color: #333; border-radius: 5px;"></textarea>
+                <center>
+                    <button class="btn">Send</button>
+                </center>
+            </div>
+          </div>
+        </div>
+    </div>
+</footer>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+      <script>
+            var config = {
+            apiKey: "AIzaSyBDIFeSp_rlrCjV4Sto7NHEGNrGHRAi5Rw",
+            authDomain: "fir-web-login-de14a.firebaseapp.com",
+            databaseURL: "https://fir-web-login-de14a.firebaseio.com",
+            projectId: "fir-web-login-de14a",
+            storageBucket: "fir-web-login-de14a.appspot.com",
+            messagingSenderId: "388268015953"
+        };
+        firebase.initializeApp(config);
+
+        // firebase
+
+</script>
+<script src="country.js"></script>
+</body>
+</html>
